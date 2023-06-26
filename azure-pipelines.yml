@@ -1,4 +1,17 @@
 # Docker
+- task: DotNetCoreCLI@2
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+  inputs:
+    command: 'build'
+    projects: '/opt/file1'
+    arguments: '/opt/file1'
+    workingDirectory: '/opt/file1'
 # Build a Docker image
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
